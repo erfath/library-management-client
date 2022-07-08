@@ -1,0 +1,138 @@
+[
+      {
+        "name": "The Road to React",
+        "author": "Robin Wieruch",
+        "isbn": 9780695254682, 
+        "category": "Computers & Tech",
+        "quantity": 13,
+        "rack": 4, 
+        "img" : "https://i.ibb.co/pQSX7Ls/road-to-react.jpg"    
+      },
+      {
+        "name": "Treasure Island",
+        "author": "Robert Louis Stevenson", 
+        "isbn": 9643689854682, 
+        "category": "Horror",
+        "quantity": 14,
+        "rack": 6,              
+        "img" : "https://i.ibb.co/9tD433Y/treasure-island.jpg" 
+      },
+      {
+        "name": "A Farewell to Arms",
+        "author": "Ernest Hemingway",  
+        "isbn": 9853689854682, 
+        "category": "Adventure",
+        "quantity": 12,
+        "rack": 3,      
+        "img" : "https://i.ibb.co/LZd1fWh/a-farewell-to-arms.jpg" 
+      },
+      {
+        "name": "For Today I Am a Boy",
+        "author": "Kim Fu",       
+        "isbn": 965389854682, 
+        "category": "Adventure",
+        "quantity": 8,
+        "rack": 7, 
+        "img" : "https://i.ibb.co/5nXxN1y/For-Today-I-am-A-boy.jpg" 
+      },
+      {
+        "name": "HTML and CSS",
+        "author": "Jon Duckett",  
+        "isbn": 9780689853682, 
+        "category": "Computers & Tech",
+        "quantity": 9,
+        "rack": 12,      
+        "img" : "https://i.ibb.co/GHbZ0vF/HTML-CSS.jpg" 
+      },
+      {
+        "name": "The Crystal Ribbon",
+        "author": "Joan He", 
+        "isbn": 9780689854362, 
+        "category": "Adventure",
+        "quantity": 20,
+        "rack": 5,       
+        "img" : "https://i.ibb.co/kHQSGV1/the-crystal-ribbon.jpg" 
+      },
+      {
+        "name": "Learn JavaScript",
+        "author": "Stephen Blumenthal",     
+        "isbn": 9780689854653, 
+        "category": "Computers & Tech",
+        "quantity": 16,
+        "rack": 6,   
+        "img" : "https://i.ibb.co/f4hTBn5/Java-Script.png" 
+      },
+      {
+        "name": "The Downstairs Girl",
+        "author": "Katie Zhao",     
+        "isbn": 9734289854682, 
+        "category": "Horror",
+        "quantity": 22,
+        "rack": 4,  
+        "img" : "https://i.ibb.co/LSDyYr4/The-downstair-girl.jpg" 
+      },
+      {
+        "name": "Pr_ide and Prejudice",
+        "author": "Jane Austen",
+        "isbn": 9864689854682, 
+        "category": "Fantasy",
+        "quantity": 18,
+        "rack": 9,        
+        "img" : "https://i.ibb.co/vH5Gy8M/pride-and-prejudice.jpg" 
+      },
+      {
+        "name": "The Three Musketeers",
+        "author": "Oliver Ho", 
+        "isbn": 8975689854682, 
+        "category": "Mystery",
+        "quantity": 5,
+        "rack": 8,       
+        "img" : "https://i.ibb.co/0hZ7zmL/The-Three-Musketeers.jpg" 
+      },
+      {
+        "name": "The Notebook",
+        "author": "Nicholas Sparks",   
+        "isbn": 9780685354682, 
+        "category": "Fantasy",
+        "quantity": 7,
+        "rack": 7,     
+        "img" : "https://i.ibb.co/Wgx73ws/the-notebook.jpg" 
+      },
+      {
+        "name": "The Scarlet Letter",
+        "author": "Nathaniel Hawthorne",  
+        "isbn": 9780689542682, 
+        "category": "Adventure",
+        "quantity": 6,
+        "rack": 5,      
+        "img" : "https://i.ibb.co/8zN65Mx/The-Secret-Letter.jpg" 
+      },
+      {
+        "name": "Interior Chinatown",
+        "author": "Chloe Gong", 
+        "isbn": 8760689854682, 
+        "category": "History",
+        "quantity": 17,
+        "rack": 2,       
+        "img" : "https://i.ibb.co/jhnp0TT/interior-chinatown-1.jpg" 
+      },
+      {
+        "name": "Don Quixote",
+        "author": "Miguel de Cervantes",
+        "isbn": 9780799854682, 
+        "category": "Thriller",
+        "quantity": 15,
+        "rack": 1, 
+        "img" : "https://i.ibb.co/R4Zjm55/Don.jpg"    
+      },
+      {
+        "name": "Anna Karenina",
+        "author": "Leo Tolstoy",      
+        "isbn": 9780689854682, 
+        "category": "Romance",
+        "quantity": 23,
+        "rack": 3,  
+        "img" : "https://i.ibb.co/xhLGMSQ/anna-karenina.jpg" 
+      }
+    
+]
