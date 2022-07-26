@@ -2,35 +2,32 @@ import React from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import locker from '../../images/logo_software.png'
 import { useForm } from "react-hook-form";
-import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGithub, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import Spinner from '../Spinner';
 import useToken from '../../Hooks/useToken';
+import gitLogo from '../../images/github.png'
 
 
 const Register = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const [
-        createUserWithEmailAndPassword,
-        user,
-        loading,
-        error,
-    ] = useCreateUserWithEmailAndPassword(auth);
+    const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
+    const [signInWithGithub, gUser, gLoading, gError] = useSignInWithGithub(auth);
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
     const navigate = useNavigate()
     const [token] = useToken(user);
 
     let signInError;
 
-    if (loading || updating) {
+    if (loading || updating || gLoading) {
         return <Spinner></Spinner>
     }
 
-    if (error || updateError) {
-        signInError = <p className='text-red-500'>{error?.message}</p>
+    if (error || updateError || gError) {
+        signInError = <p className='text-red-500'>{error?.message} {gError?.message}</p>
     }
 
-    if (token) {
+    if (token || gUser) {
         navigate('/')
     }
     const onSubmit = async data => {
@@ -46,7 +43,7 @@ const Register = () => {
                     <div className="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
                         <div className="md:w-8/12 lg:w-6/12 mb-12 md:mb-0">
                             <img
-                                src={locker} className="w-full" alt="Phone image" />
+                                src={locker} style={{ height: '400px' }} className="w-full" alt="Phone" />
                         </div>
                         <div className="md:w-8/12 lg:w-5/12 lg:ml-20">
                             <h2 className='text-center text-4xl mb-7 font-bold text-blue-600'>Register Here</h2>
@@ -129,9 +126,11 @@ const Register = () => {
                                 </div>
 
                                 <div
-                                    className="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5"
-                                >
+                                    className="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5">
                                     <p className="text-center font-semibold mx-4 mb-0">OR</p>
+                                </div>
+                                <div className='flex justify-center items-center'>
+                                    <button onClick={()=> signInWithGithub()} class="flex justify-center items-center px-6 py-1 bg-purple-500 text-white font-medium text-sm uppercase rounded-full shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out">Continue with Github<span><img style={{ width: '35px' }} src={gitLogo} alt="" /> </span></button>
                                 </div>
                             </form>
                         </div>

@@ -2,10 +2,11 @@ import React, { useEffect } from 'react';
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import logoSoft from '../../images/locker.PNG'
 import { useForm } from "react-hook-form";
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword, useSignInWithGithub } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import Spinner from '../Spinner';
 import useToken from '../../Hooks/useToken';
+import gitLogo from '../../images/github.png'
 
 const Login = () => {
   const { register, formState: { errors }, handleSubmit } = useForm();
@@ -15,6 +16,7 @@ const Login = () => {
     loading,
     error,
   ] = useSignInWithEmailAndPassword(auth);
+  const [signInWithGithub, gUser, gLoading, gError] = useSignInWithGithub(auth);
   const navigate = useNavigate();
   const location = useLocation();
   const [token] = useToken(user)
@@ -23,16 +25,16 @@ const Login = () => {
   let signInError;
 
   useEffect(() => {
-    if (token) {
+    if (token || gUser) {
       navigate(from, { replace: true });
     }
-  }, [token, from, navigate])
+  }, [token, gUser, from, navigate])
 
-  if (loading) {
+  if (loading || gLoading) {
     return <Spinner></Spinner>
   }
 
-  if (error) {
+  if (error || gError) {
     signInError = <p className='text-red-500'>{error?.message}</p>
   }
 
@@ -44,12 +46,11 @@ const Login = () => {
   return (
     <div>
       <section className="h-fit">
-
         <div className="container px-6 py-12 h-full">
           <div className="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
             <div className="md:w-8/12 lg:w-6/12 mb-12 md:mb-0">
               <img
-                src={logoSoft} className="w-full" alt="Phone image" />
+                src={logoSoft} className="w-full" alt="Phone" />
             </div>
             <div className="md:w-8/12 lg:w-5/12 lg:ml-20">
               <h2 className='text-center text-4xl mb-7 font-bold text-blue-600'>Sign In Here</h2>
@@ -121,9 +122,11 @@ const Login = () => {
                 </div>
 
                 <div
-                  className="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5"
-                >
+                  className="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5">
                   <p className="text-center font-semibold mx-4 mb-0">OR</p>
+                </div>
+                <div className='flex justify-center items-center'>
+                  <button onClick={() => signInWithGithub()} class="flex justify-center items-center px-6 py-1 bg-purple-500 text-white font-medium text-sm uppercase rounded-full shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out">Continue with Github<span><img style={{ width: '35px' }} src={gitLogo} alt="" /> </span></button>
                 </div>
               </form>
             </div>

@@ -17,7 +17,7 @@ const Users = () => {
 
     return (
         <div>
-            <h2>All Users Are Here {users.length}</h2>
+            <h2 className='text-red-800'>{users.length} Users Are Here</h2>
             <div>
                 <div class="flex w-52 lg:w-full flex-col">
                     <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -25,14 +25,14 @@ const Users = () => {
                             <div class="overflow-hidden">
                                 <table class="min-w-full">
                                     <thead class="border-b">
-                                        <tr>
-                                            <th scope="col" class="lg:text-xl font-serif text-gray-900 px-6 py-4 text-left">
+                                        <tr className='bg-gray-600'>
+                                            <th scope="col" class="lg:text-xl font-serif text-white px-6 py-4 text-left">
                                                 SL.
                                             </th>
-                                            <th scope="col" class="lg:text-xl font-serif text-gray-900 px-6 py-4 text-left">
+                                            <th scope="col" class="lg:text-xl font-serif text-white px-6 py-4 text-left">
                                                 User Email
                                             </th>
-                                            <th scope="col" class="lg:text-xl font-serif text-gray-900 px-6 py-4 text-center">
+                                            <th scope="col" class="lg:text-xl font-serif text-white px-6 py-4 text-center">
                                                 Action
                                             </th>
                                         </tr>

@@ -4,14 +4,32 @@ import Book from './Book';
 
 const Books = () => {
     const [books, setBooks] = useBooks();
+    const [searchBook, setSearchBook] = useState("");
 
     return (
         <div>
-            <h2 className='m-10 text-4xl border-b-4  font-semibold lg:w-96'>   Popular Book's Now</h2>
+            <div className='lg:flex justify-between'>
+                <h2 className='m-10 text-4xl border-b-4  font-semibold lg:w-96'>   Popular Book's Now</h2>
+                <div>
+                    <input onChange={(event) => {
+                        setSearchBook(event.target.value)
+                    }} type="text" className="form-control block w-72 p-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none m-10" placeholder='Search...' />
+                </div>
+            </div>
             <div className='flex justify-center'>
                 <div className='grid lg:grid-cols-3 gap-20 grid-cols-1'>
                     {
-                        books.map((book) => <Book
+                        books.filter((book) => {
+                            if (searchBook === "") {
+                                return book
+                            }
+                            else if (book.name.toLowerCase().includes(searchBook.toLowerCase())) {
+                                return book
+                            }
+                            else if (book.author.toLowerCase().includes(searchBook.toLowerCase())) {
+                                return book
+                            }
+                        }).map((book) => <Book
                             book={book}
                             key={book._id}></Book>)
                     }

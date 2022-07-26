@@ -1,12 +1,12 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import './Footer.css';
 
 const Footer = () => {
     const today = new Date();
     const year = today.getFullYear();
     return (
-        <footer className="text-center  text-white" style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}>
-            <div className=" pt-9">
+        <footer className="text-center text-white" style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}>
+            <div className="pt-9">
                 <div className="flex justify-center mb-9">
                     <a href="#!" className="mr-9 text-gray-800">
                         <svg

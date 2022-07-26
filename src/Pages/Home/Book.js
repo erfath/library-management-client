@@ -1,6 +1,9 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
 const Book = ({ book }) => {
+   
+
+    
     const {_id, name, author, img } = book;
 
     const navigate = useNavigate()

@@ -15,6 +15,12 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Users from './Pages/Dashboard/Users';
 import AdminAuth from './Pages/RequireAuth/AdminAuth';
+import AddBook from './Pages/Dashboard/AddBook';
+import BookList from './Pages/Dashboard/BookList';
+import IssueBook from './Pages/Dashboard/IssueBook';
+import About from './Pages/About/About';
+import Blogs from './Pages/Blogs';
+import Error from './Pages/Error';
 
 function App() {
   return (
@@ -25,6 +31,8 @@ function App() {
         <Route path='home' element={<Home></Home>}></Route>
         <Route path='login' element={<Login></Login>}></Route>
         <Route path='register' element={<Register></Register>}></Route>
+        <Route path='about' element={<About></About>}></Route>
+        <Route path='blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/book/:id' element={
           <RequireAuth>
             <BookDetail></BookDetail>
@@ -41,7 +49,23 @@ function App() {
               <Users></Users>
             </AdminAuth>}>
           </Route>
+          <Route path='addbook' element={
+            <AdminAuth>
+              <AddBook></AddBook>
+            </AdminAuth>}>
+          </Route>
+          <Route path='books' element={
+            <AdminAuth>
+              <BookList></BookList>
+            </AdminAuth>}>
+          </Route>
+          <Route path='issue' element={
+            <AdminAuth>
+              <IssueBook></IssueBook>
+            </AdminAuth>}>
+          </Route>
         </Route>
+        <Route path='*' element={<Error></Error>}></Route>
       </Routes>
       <Footer></Footer>
       <ToastContainer />
